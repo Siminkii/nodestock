@@ -5,8 +5,9 @@ const app = express();
 const { engine } = require('express-handlebars');
 const path = require('path');
 const request = require('request');
+const cool = require('cool-ascii-faces');
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5006;
 
 //API KEY fgW2Im6HchoZPBAT_pRq5NPooloAPY8b
 request('https://api.polygon.io/v2/last/trade/AAPL?apiKey=fgW2Im6HchoZPBAT_pRq5NPooloAPY8b', { json: true }, (err,res, body) => {
@@ -35,6 +36,11 @@ app.get('/', (req, res) => {
     res.render('home', {
         stuff: otherstuff
     });
+
+app.get('/cool', (req, res) => {
+    res.send(cool())
+});
+
 });
  // Create about page route
 app.get('/about.html', (req, res) => {
