@@ -40,6 +40,9 @@ app.get('/', (req, res) => {
 app.get('/cool', (req, res) => {
     res.send(cool())
 });
+const server = app.listen(port, () => {
+  console.log(`Listening on ${port}`)
+});
 
 });
  // Create about page route
